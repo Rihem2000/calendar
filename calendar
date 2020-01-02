@@ -9,7 +9,7 @@ int main() {
   
    flag = (365*(year-1) + (year-1)/4 + 6 ) %7  ;
    if (year % 4==0)  dim[1] = 29 ;
-   printf("\n\n\t\t\t\t\t><><><this is %d><><>< \n" , year);
+   printf("\n\n\t\t\t\t\t this is %d><><>< \n" , year);
    flag = (365*(year-1) + (year-1)/4 ) %7  ;
   
    for (int m = 0 ; m <3 ; m++ ) {
