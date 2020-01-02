@@ -1,0 +1,49 @@
+#include <stdio.h>
+int main() {
+   
+   int flag, year  ;
+   int dim[] = {31,28,31,30,31,30,31,31,30,31,30,31};
+  
+   printf("Enter the year : ");
+   scanf("%d", &year);
+  
+   flag = (365*(year-1) + (year-1)/4 + 6 ) %7  ;
+   if (year % 4==0)  dim[1] = 29 ;
+   printf("\n\n\t\t\t\t\t><><><this is %d><><>< \n" , year);
+   flag = (365*(year-1) + (year-1)/4 ) %7  ;
+  
+   for (int m = 0 ; m <3 ; m++ ) {
+        for (int i=0 ; i++<4 ;) printf("%3d\t\t\t\t ",i + m*4);
+        printf("\n");
+     
+        for (int i = 0 ; i++ <4; ) printf("Su  Mo  Tu  We  Th  Fr  Sa       ");
+        printf("\n");
+     
+        int d[]= {0,0,0,0} ;
+        int i ;
+     
+        for ( i = 0 ; i <4 ; i++ ) {
+            for (int  j = 0 ; j < 7 ; j++  ) {
+                if (flag>j) printf("    ");
+                else printf("%2d  " , d[i] = d[i]+1);
+            }
+          
+            flag = (flag + dim[m*4+i])%7 ;
+            printf("     ");
+        }
+     
+        printf("\n") ;
+        while( !( d[0]>=dim[m*4] && d[1]>=dim[m*4+1] && d[2]>=dim[m*4+2]) ) {
+            for ( i = 0 ; i < 4 ; i++) {
+                for (int j = 0 ; j<7   ;j++) {
+                    if (d[i]>=dim[m*4+i]) printf("    ");
+                    else printf("%2d  " , d[i] = d[i]+1) ;
+                }
+                printf("     ");
+            }
+            printf("\n");
+        }
+        printf("\n\n");
+   }
+
+}
